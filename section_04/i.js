@@ -89,25 +89,85 @@
 
 
 
-let arr = [
-  {
-    "language" : "c++",
-    "PC" :"Mac"
-  },
-  {
-    "language" : "python",
-    "PC" :"Mac"
-  },
-  {
-    "language" : "java",
-    "PC" :"Mac"
-  },
-  {
-    "language" : "ruby",
-    "PC" :"Mac"
-  },
-]
+// let arr = [
+//   {
+//     "language" : "c++",
+//     "PC" :"Mac"
+//   },
+//   {
+//     "language" : "python",
+//     "PC" :"Mac"
+//   },
+//   {
+//     "language" : "java",
+//     "PC" :"Mac"
+//   },
+//   {
+//     "language" : "ruby",
+//     "PC" :"Mac"
+//   },
+// ]
 
-arr.forEach((v)=>{
-  console.log(v.language)
+// arr.forEach((v)=>{
+//   console.log(v.language)
+// })
+
+
+
+
+// let arr = ["mango" , "banana" , "orange" , "stowbarry" , "pineapple" , "charry"]
+// let ar =[]
+// let value = arr.forEach((value) => {
+//   ar.push(value)
+// })
+//  console.log(ar)
+
+
+// let arr = [1,2,3,4,5,6,7,8,9,10]
+// let ar = arr.filter((val)=>{
+//   return val > 4
+// })
+// console.log(ar)
+
+
+
+// let arr = [
+//   {
+//     "language" : "c++",
+//     "PC" :"Mac"
+//   },
+//   {
+//     "language" : "python",
+//     "PC" :"Mac"
+//   },
+//   {
+//     "language" : "java",
+//     "PC" :"Mac"
+//   },
+//   {
+//     "language" : "c++",
+//     "PC" :"window"
+//   },
+// ]
+
+// let ar = arr.filter((val)=>{
+//   return val.language =="c++" && val.PC=="window"
+// })
+
+// console.log(ar)
+
+
+
+
+
+
+//MAP
+let arr = [1,2,3,4,5,6,7,8,8]
+const newarr = arr.map((val) => {
+  return val*2
+}).filter((va) =>{
+  return va>10
+}).reduce((v,va) => {
+  return v+va
 })
+console.log(newarr)
