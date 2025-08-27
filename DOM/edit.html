@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="ui">
+    <li>
+      Javascript
+    </li>
+  </ul>
+  
+  <script>
+        //  function fun(lan)
+        //  {
+        //    let ui = document.querySelector("#ui")
+        //    let a = document.createElement('li')
+        //     a.innerHTML = `${lan}`
+        //    ui.appendChild(a)
+           
+        //  }
+        //  fun('python')
+        //  fun('java')
+
+
+
+          function fun(lan)
+         {
+           let ui = document.querySelector("#ui")
+           let li = document.createElement('li')
+            li.appendChild(document.createTextNode(`${lan}`) )
+           ui.appendChild(li)
+           
+         }
+         fun('python')
+         fun('java')
+
+         
+         function upd(lan)
+         {
+          let ui = document.querySelector("li:nth-child(2)")
+          let li = document.createElement('li')
+          li.appendChild(document.createTextNode(`${lan}`))
+          ui.replaceWith(li)
+         }
+         upd("CSS")
+
+
+
+          function del(lan)
+         {
+          let ui = document.querySelector(`li:nth-child(${lan})`)
+          
+          ui.remove()
+         }
+         del(1)
+
+
+
+
+
+
+
+
+
+
+
+           // let a = document.querySelector('.week')
+      // console.log(a.children)
+      // let b = Array.from(a.children)
+      // b.forEach((v)=>{
+      //   v.style.color ="red"
+      // })
+      // console.log(b)
+
+      // console.log(a.children[0].innerHTML)
+
+      // let b = document.querySelector('.day')
+      // console.log(b.parentElement)
+      //  console.log(b.nextElementSibling)
+      //   console.log(b.nextElementSibling)
+
+      // const newDiv = document.createElement("h1");
+      // console.log(newDiv);
+      // newDiv.id = "i1";
+      // newDiv.className = "iC";
+      // newDiv.setAttribute("role", "admin");
+      // const ss = document.createTextNode('Hello WOrld')
+      // newDiv.appendChild(ss)
+      // document.body.appendChild(newDiv)
+    </script>
+</script>
+</body>
+</html> -->
