@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body id="body">
+  <h1>Hello</h1>
+  <ul id="ui">
+    <li id="c++">C++</li>
+    <li id="js">JS</li>
+    <li id="css">CSS</li>
+    <li id="python">Python</li>
+  </ul>
+
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+
+  <button id="xx">Start Interval</button>
+  <button id="zz">Stop Interval</button>
+
+  <script>
+    // 🟢 Remove list item on click
+    document.querySelector("#ui").addEventListener("click", function (e) {
+      if (e.target.tagName === "LI") {
+        e.target.remove();
+      }
+    });
+
+    // 🟢 Start and stop for setTimeout
+    let timeoutId;
+    document.querySelector("#start").addEventListener("click", function () {
+      timeoutId = setTimeout(() => {
+        document.querySelector("h1").innerHTML = "Hello World";
+    
+      }, 2000);
+      console.log("Timeout started");
+    });
+
+    document.querySelector("#stop").addEventListener("click", function () {
+      clearTimeout(timeoutId);
+      console.log("Timeout stopped");
+    });
+
+    // 🟢 Start and stop for setInterval
+    let intervalId;
+    document.querySelector("#xx").addEventListener("click", function () {
+      intervalId = setInterval(() => {
+            let z = document.querySelector('body');
+
+        // Generate a random color in hex format
+        let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+        z.style.backgroundColor = randomColor;
+        console.log("Running...");
+      }, 2000);
+    });
+
+    document.querySelector("#zz").addEventListener("click", function () {
+      clearInterval(intervalId);
+      intervalId = null
+      console.log("Interval stopped");
+    });
+  </script>
+</body>
+
+</html>

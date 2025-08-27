@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      h1 {
+        text-align: center;
+      }
+      .divContainer {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        line-height: 50px;
+      }
+      #submit {
+        padding: 10px 100px;
+        width: 100%;
+        background-color: antiquewhite;
+        border: 0;
+        border-radius: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>BMI Calculator</h1>
+    <div class="divContainer">
+      <!-- ✅ FIXED: Use proper inline event handler -->
+      <form id="fom">
+        Enter Height <input type="text" id="hig" /><br />
+        Enter Weight <input type="text" id="wig" /><br />
+        <button id="submit">Submit</button><br />
+        <h1 id="result"></h1>
+        <h4 id="res"></h4>
+      </form>
+    </div>
+
+    <script>
+      let fom = document.querySelector("#fom");
+      fom.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        let h1 = document.querySelector("#result");
+        let hig = parseInt(document.querySelector("#hig").value);
+        let wig = parseInt(document.querySelector("#wig").value);
+
+        let heightMeters = hig / 100;
+        let bim = wig / (heightMeters * heightMeters);
+        bim = bim.toFixed(2);
+
+        h1.innerText = `Your BMI is ${bim}`;
+        if (bim < 20) {
+          res.innerText = "You are under age";
+        } else {
+          res.innerText = "Your Perfect";
+        }
+      });
+    </script>
+  </body>
+</html>

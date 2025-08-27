@@ -162,12 +162,21 @@
 
 
 //MAP
-let arr = [1,2,3,4,5,6,7,8,8]
-const newarr = arr.map((val) => {
-  return val*2
-}).filter((va) =>{
-  return va>10
-}).reduce((v,va) => {
-  return v+va
-})
-console.log(newarr)
+// let arr = [1,2,3,4,5,6,7,8,8]
+// const newarr = arr.map((val) => {
+//   return val*2
+// }).filter((va) =>{
+//   return va>10
+// }).reduce((v,va) => {
+//   return v+va
+// },100)
+// console.log(newarr)
+
+
+
+// let arr = ["mango" , "banana" , "orange" , "stowbarry" , "pineapple" , "charry"]
+// let fr = {}
+//  arr.forEach((value , index)=>{
+//   fr[index] = value
+// })
+// console.log(fr)

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .btnContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-wrap: wrap;
+        height: 100vh;
+      }
+      .btn {
+        padding: 50px;
+        margin: 10px;
+        border-radius: 100%;
+        border: 0;
+        background-color: black;
+        color: white;
+        transition: background-color 0.3s ease;
+
+        cursor: pointer;
+      }
+      #btn1:hover {
+        background-color: red;
+      }
+      #btn2:hover {
+        background-color: blue;
+      }
+      #btn3:hover {
+        background-color: green;
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <div class="btnContainer">
+      <button id="btn1" class="btn">RED</button>
+      <button id="btn2" class="btn">BLUE</button>
+      <button id="btn3"  class="btn">GREEN</button>
+    </div>
+
+    <script>
+    
+
+      const bg = document.querySelector("#body");
+      const btn = document.querySelectorAll("button");
+      btn.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+          console.log(e);
+          console.log(e.target);
+          if (e.target.id === "btn1") {
+          bg.style.backgroundColor = "red";
+        } else if (e.target.id === "btn2") {
+          bg.style.backgroundColor= "blue";
+        } else {
+          bg.style.background = "green";
+        }
+        });
+      });
+    </script>
+  </body>
+</html>
+
+
+
+  <!-- <div class="btnContainer">
+      <button id="btn1" onclick="btnC('red')" class="btn">RED</button>
+      <button id="btn2" onclick="btnC('blue')" class="btn">BLUE</button>
+      <button id="btn3" onclick="btnC('green')" class="btn">GREEN</button>
+    </div>
+
+    <script>
+      // function btnC(col) {
+      //   const bg = document.querySelector("#body");
+      //   if (col === "red") {
+      //     bg.style.backgroundColor = "red";
+      //   } else if (col === "blue") {
+      //     bg.style.backgroundColor= "blue";
+      //   } else {
+      //     bg.style.background = "green";
+      //   }
+      // } -->
