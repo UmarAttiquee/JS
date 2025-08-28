@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .heading {
+      text-align: center;
+      padding: 30px;
+    }
+
+    .btnContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btnimg img {
+
+      width: 100px;
+      height: 100px;
+
+    }
+
+    .btnimg {
+      margin: 30px;
+    }
+      .btn {
+      padding: 20px;
+      font-size: 1.3rem;
+      background-color: #e0e0e0;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+      margin: 15px;
+    }
+  .btnx {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      margin: 0 10px;
+      background-color: #444;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+      font-family: Arial, sans-serif;
+    }
+
+    .btnx:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <nav style="margin-top: 50px; margin-bottom: 40px;">
+    <a class="btnx" href="/calculator.html">Calculator</a>
+    <a class="btnx" href="/digitalwatch.html">Watch</a>
+    <a class="btnx" href="/gam.html">Game 1</a>
+    <a class="btnx" href="/bat.html">Game 2</a>
+  </nav>
+  <div class="bod">
+    <div class="heading">
+      <h1>Lets Play Rock Paper Sizer</h1>
+    </div>
+    <div class="heading">
+      <h1>Select Your Choice</h1>
+      <h3>You Selected: <span id="yourchoice"></span> </h3>
+      <h3>Computer 1 Selected: <span id="compchoice1"></span> </h3>
+      <h1 id="res"></h1>
+
+      <div class="btnContainer">
+
+        <button id="btnrock" class="btnimg"><img src="/img/rock.jpeg" alt=""></button>
+        <button id="btnpaper" class="btnimg"><img src="/img/paper.jpeg" alt=""></button>
+
+        <button id="btnsezer" class="btnimg"><img src="/img/sizer.jpeg" alt=""></button>
+
+      </div>
+      <div>
+        <h3 id="noOfWins">No Of Wins: </h3>
+        <h3 id="noOfLoses">No Of Lose: </h3>
+        <h3 id="noOftai">No Of Tai: </h3>
+
+        <button id="rest" style="background-color: red; color: white;
+        border: 0; padding: 10px 20px; border-radius: 20px;">Reset</button>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+  <script>
+    let sizer = document.querySelector('#btnsezer')
+    let rock = document.querySelector('#btnrock')
+    let paper = document.querySelector('#btnpaper')
+    let yourchoice = document.querySelector('#yourchoice')
+    let res = document.querySelector('#res')
+    let compchoice1 = document.querySelector('#compchoice1')
+    let arr1 = ["rock", "paper", "sizer"];
+    let rest = document.querySelector('#rest')
+
+
+
+    let win = document.querySelector('#noOfWins')
+    let lose = document.querySelector('#noOfLoses')
+    let tai = document.querySelector('#noOftai')
+
+    nowin = Number(localStorage.getItem('winScore')) || 0;
+    nolose = Number(localStorage.getItem('loseScore')) || 0;
+    notai = Number(localStorage.getItem('taiScore')) || 0;
+
+    // Set the UI
+    win.textContent = "No of Win:- " + nowin;
+    lose.textContent = "No of lose:- " + nolose;
+    tai.textContent = "No of tai:- " + notai;
+
+
+
+
+
+
+
+    function myChoice(val) {
+
+      yourchoice.textContent = val
+      let randomValue1 = arr1[Math.floor(Math.random() * arr1.length)];
+      comp1 = compchoice1.textContent = randomValue1
+
+
+      if (comp1 === 'sizer') {
+        notai++;
+        tai.textContent = "No of tai:- " + notai;
+        res.style.color = "Blue"
+        res.style.backgroundColor = "#f9f9f9;"
+        res.style.padding = "20px"
+        res.textContent = "Unforfunatilly You Tai"
+        console.log("No of tai:- ");
+        localStorage.setItem('taiScore', notai)
+      }
+      else if (comp1 === 'rock') {
+
+        res.style.color = "red"
+        res.style.backgroundColor = "#f9f9f9;"
+        res.style.padding = "20px"
+        res.textContent = "Bad Luck You Lose"
+        nolose++;
+        localStorage.setItem('loseScore', nolose)
+
+        lose.textContent = "No of lose:- " + nolose;
+        console.log('No of lose:- ');
+      }
+      else if (comp1 === 'paper') {
+        res.style.color = "green"
+        res.style.backgroundColor = "#f9f9f9;"
+        res.style.padding = "20px"
+        res.textContent = "Congratulations! You Win"
+        localStorage.setItem('winScore', nowin)
+        nowin++;
+        win.textContent = "No of Win:-" + nowin;
+        console.log('You win');
+      }
+
+
+
+    }
+
+    rock.addEventListener('click', () => {
+      myChoice("rock")
+    })
+    paper.addEventListener('click', () => {
+      myChoice("paper")
+    })
+    sizer.addEventListener('click', () => {
+      myChoice("sizer")
+    })
+
+    rest.addEventListener('click', () => {
+      localStorage.removeItem('winScore');
+      localStorage.removeItem('loseScore');
+      localStorage.removeItem('taiScore');
+      win.textContent = ""
+      lose.textContent = ""
+      tai.textContent = ""
+      res.textContent = ""
+
+
+
+
+    })
+
+
+
+  </script>
+</body>
+
+</html>
