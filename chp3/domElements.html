@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .bodubg {
+      background-color: rgb(56, 54, 54);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      line-height: 30px;
+    }
+  </style>
+</head>
+
+
+<body class="bodubg">
+
+  <div class="parent">
+    <div class="day">Monday</div>
+    <div class="day">Tuesday</div>
+    <div class="day">Wednesday</div>
+    <div class="day">Thaursday</div>
+    <div class="day">Friday</div>
+  </div>
+
+
+  <script>
+    const parent = document.querySelector('.parent')
+    // console.log(parent)
+    // console.log(parent.children)
+    // console.log(parent.children[1])
+
+    // for (let i = 0; i <= parent.children.length - 1; i++) {
+    //   console.log(parent.children[i].innerHTML)
+    //   parent.children[i].style.color = "red"
+
+    //   if (parent.children[i].innerHTML == "Friday") {
+    //     parent.children[i].style.color = "green"
+
+    //   }
+    // }
+
+    // console.log(parent.firstElementChild.innerText)
+    // console.log(parent.lastElementChild.innerText)
+
+    const dayOne = document.querySelector('.day')
+    // console.log(dayOne.innerText)
+    // console.log(dayOne.nextElementSibling.innerText)
+    // console.log(dayOne.parentElement.innerText)
+
+
+    console.log("NODE LIST: ", parent.childNodes)
+
+
+
+
+  </script>
+</body>
+
+</html>

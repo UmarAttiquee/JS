@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .bodubg {
+      background-color: rgb(56, 54, 54);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      line-height: 30px;
+    }
+  </style>
+</head>
+
+<body class="bodubg">
+  <ul id="ulList">
+    <li>Javascript</li>
+  </ul>
+
+  <script>
+    const ulList = document.querySelector('#ulList')
+
+    function addLanguages(lan) {
+      const Li = document.createElement('li')
+      const newData = document.createTextNode(lan)
+      Li.appendChild(newData)
+      ulList.appendChild(Li)
+
+    }
+
+    addLanguages("Java")
+    addLanguages("Python")
+
+
+
+
+    // Edit
+    const liData = document.querySelector('li:nth-child(2)')
+    const updList = document.createElement('li')
+    updList.innerText = "C#"
+    liData.replaceWith(updList)
+
+
+    const removeLi = document.querySelector('li:nth-child(3)')
+    removeLi.remove()
+
+
+
+
+  </script>
+</body>
+
+
+</html>

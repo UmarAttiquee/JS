@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    button {
+      padding: 20px;
+      margin: 5px;
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="mainUl">
+    <li id="js"><button id="js">JavaScript</button></li>
+    <li id="c"><button id="c-is-its-id">C</button></li>
+    <li id="java"><button>JAVA</button></li>
+    <li id="python"><button>Python</button></li>
+  </ul>
+
+
+  <script>
+    function fun0() {
+      alert('Python Clicked')
+    }
+
+    document.querySelector('#mainUl').addEventListener('click', (e) => {
+
+      console.log(`You Clicked On mainUl}`);
+      console.log(e.target)
+      console.log(e.target.parentNode)
+      let rem = e.target.parentNode
+      if (e.target.tagName === 'BUTTON') {
+        console.log(e.target.id)
+        rem.remove()
+        console.log('It Deleted')
+      }
+
+    });
+
+
+    document.querySelector('#js').addEventListener('click', (e) => {
+      console.log(`You Clicked On ${e.target.innerText} and its Id is ${e.target.id}`);
+
+      e.stopPropagation()
+    });
+
+
+
+  </script>
+</body>
+
+</html>

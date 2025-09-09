@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .bodubg {
+      background-color: rgb(56, 54, 54);
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 30px;
+      line-height: 30px;
+    }
+  </style>
+</head>
+
+<body class="bodubg">
+
+  <script>
+    const newDiv = document.createElement('div')
+    newDiv.id = 12
+    newDiv.className = "myClassName mainClass"
+    newDiv.setAttribute('title', 'title Attachmed')
+    newDiv.setAttribute('role', 'HR')
+    newDiv.style.backgroundColor = "green"
+    newDiv.style.color = "white"
+    newDiv.style.padding = "23px;"
+    const data = document.createTextNode("Chai or Code")
+    newDiv.appendChild(data)
+
+    document.body.appendChild(newDiv)
+    console.log(newDiv.innerText)
+  </script>
+</body>
+
+
+</html>
