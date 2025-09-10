@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+    * {
+      padding: 0px;
+      margin: 0px;
+      box-sizing: border-box;
+    }
+
+    .outercontainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+    }
+
+    #firstForm {
+      margin-top: 15px;
+      margin-bottom: 15px;
+      padding: 15px;
+    }
+
+    .editable {
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="outercontainer">
+    <div class="innerContainer">
+      <h1>Welcome To Todo List</h1>
+
+      <form action="" id="firstForm">
+        <input type="text" name="" id="inputField_FirstForm" placeholder="Enter Your Todo">
+        <button type="submit">Add</button>
+      </form>
+
+      <div class="ShowDiv">
+        <ul class="ShowUl">
+          <input type="text" id="editSearchBar" class="editable">
+          <button id="saveBtn" class="editable">Save</button>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <script>
+
+
+    const form = document.querySelector('#firstForm')
+    const formValue = document.querySelector("#inputField_FirstForm")
+    const showUl = document.querySelector('.ShowUl')
+    const editFormValue = document.querySelector("#editSearchBar")
+    const savebtn = document.querySelector("#saveBtn")
+    const editable = document.querySelector(".editable")
+    let txt
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault()
+      todoText = formValue.value
+      createElements(todoText)
+      formValue.value = ""
+    })
+
+    function createElements(todoText) {
+      const Li = document.createElement('li')
+      const editBtn = document.createElement('button')
+      const delBtn = document.createElement('button')
+
+      delBtn.className = "delbtnClass"
+      editBtn.className = "editbtnClass"
+      Li.className = "liClass"
+
+      liData = document.createTextNode(todoText)
+      delData = document.createTextNode("Delete")
+      editData = document.createTextNode("Edit")
+
+      Li.appendChild(liData)
+      delBtn.appendChild(delData)
+      editBtn.appendChild(editData)
+
+      showUl.appendChild(Li)
+      Li.append(editBtn)
+      Li.append(delBtn)
+    }
+
+
+    showUl.addEventListener('click', (e) => {
+
+      if (e.target.classList.contains('delbtnClass')) {
+        console.log('yes Inside')
+        if (e.target.tagName == 'BUTTON') {
+          console.log("In")
+          e.target.parentElement.remove()
+        }
+      }
+
+
+      if (e.target.classList.contains('editbtnClass')) {
+        console.log('E yes Inside')
+        if (e.target.tagName == 'BUTTON') {
+          console.log("E In")
+
+
+          savebtn.style.display = "inline"
+          editFormValue.style.display = "inline"
+          txt = e.target.parentElement.firstChild;
+          editFormValue.value = txt.textContent;
+
+        }
+      }
+
+
+    })
+
+    savebtn.addEventListener('click', function (e) {
+      txt.textContent = editFormValue.value
+      savebtn.style.display = "none"
+      editFormValue.style.display = "none"
+    })
+  </script>
+
+</body>
+
+</html>

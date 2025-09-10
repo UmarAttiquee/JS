@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Changer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .btn {
+      padding: 15px;
+      margin: 15px;
+    }
+  </style>
+</head>
+
+<body class="bg">
+  <div class="container">
+    <button class="btn" id="yellow">yellow</button>
+  </div>
+</body>
+
+<script>
+  const place = document.querySelector('.container')
+  bg = document.querySelector(".bg")
+  const Buttons = document.querySelectorAll('button')
+
+  function createButtons(val) {
+    const btn = document.createElement('button')
+    btn.className = "btn"
+    btn.id = val
+    data = document.createTextNode(val)
+    btn.appendChild(data)
+    place.appendChild(btn)
+    btn.addEventListener('click', changeColor)
+
+  }
+  createButtons("red")
+  createButtons("green")
+  createButtons("black")
+  createButtons("reset")
+
+
+  Buttons.forEach((btn) => {
+    btn.addEventListener('click', changeColor)
+  })
+
+
+
+  function changeColor(e) {
+    console.log(e)
+    const color = e.target.innerText
+    if (e.target.innerText === 'reset') {
+      bg.style.backgroundColor = ""
+    }
+    else {
+      bg.style.backgroundColor = color
+    }
+  }
+
+
+
+</script>
+
+</html>

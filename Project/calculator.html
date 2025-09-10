@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .outercontainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #3b3939;
+    }
+
+    .innerContainer {
+      background-color: rgb(236, 240, 240);
+      width: 20%;
+      height: 65%;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .btn {
+      padding: 25px;
+      margin: 15px;
+      border: none;
+      background-color: #5a5454;
+      color: #ffff;
+    }
+
+    #inputFrom {
+      width: 100%;
+      padding: 20px;
+    }
+
+    .btndiv {
+      margin-top: 15px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="outercontainer">
+    <div class="innerContainer">
+      <div class="container">
+        <input id="inputFrom" readonly type="text" name="" id="">
+      </div>
+      <div class="btndiv">
+        <button class="btn" id="0">0</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+
+    const place = document.querySelector(".btndiv")
+
+    function createButton(val) {
+      const btn = document.createElement('button')
+      btn.id = val
+      btn.className = 'btn'
+      data = document.createTextNode(val)
+      btn.appendChild(data)
+      place.appendChild(btn)
+    }
+    createButton(1)
+    createButton(2)
+    createButton(3)
+    createButton(4)
+    createButton(5)
+    createButton(6)
+    createButton(7)
+    createButton(8)
+    createButton(9)
+    createButton("/")
+    createButton("+")
+    createButton("-")
+    createButton("*")
+    createButton("=")
+    createButton("c")
+
+
+
+    const Buttons = document.querySelectorAll('button')
+    const input = document.querySelector("#inputFrom")
+    let txt = '';
+
+    Buttons.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+
+        let value = e.target.innerText
+
+        if (value === 'c') {
+          txt = " "
+          console.log(txt)
+        }
+        else if (value === '=') {
+          txt = eval(txt)
+        }
+        else {
+          txt = txt + value
+
+        }
+        input.value = txt
+
+      })
+    })
+
+
+  </script>
+</body>
+
+</html>

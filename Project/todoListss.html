@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .outerContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    #formComplete {
+      padding: 15px;
+    }
+
+    .editable {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="outerContainer">
+    <div class="innerContainer">
+      <h1>Welcome to Todo</h1>
+
+      <form action="" id="formComplete">
+        <input type="text" name="" placeholder="Enter Your Todos" id="formInputField">
+        <button type="submit">Add</button>
+      </form>
+
+
+      <input type="text" id="editFormField" class="editable">
+      <button id="saveData" class="editable">Save</button>
+      <button id="cancleData" class="editable">Cancle</button>
+
+
+
+      <div class="showAllData">
+        <ul id="showUl">
+
+        </ul>
+      </div>
+
+    </div>
+  </div>
+  <script>
+
+    const formComplete = document.querySelector("#formComplete")
+    const formInputField = document.querySelector("#formInputField")
+    const showUl = document.querySelector("#showUl")
+
+
+
+
+
+    formComplete.addEventListener('submit', (e) => {
+      e.preventDefault()
+      let formValue = formInputField.value
+      createElements(formValue)
+      formInputField.value = " "
+    })
+
+    function createElements(formValue) {
+      const Li = document.createElement('li')
+      const editbtn = document.createElement('button')
+      const delbtn = document.createElement('button')
+
+      Li.className = "liClass"
+      editbtn.className = "editbtn"
+      delbtn.className = 'delbtn'
+
+
+      LiData = document.createTextNode(formValue)
+      editData = document.createTextNode("Edit")
+      delData = document.createTextNode("Delete")
+
+
+      Li.appendChild(LiData)
+      editbtn.appendChild(editData)
+      delbtn.appendChild(delData)
+
+      showUl.appendChild(Li)
+      Li.appendChild(editbtn)
+      Li.appendChild(delbtn)
+    }
+
+
+
+    const editBtn = document.querySelector(".editbtn")
+    const editFormField = document.querySelector("#editFormField")
+    const saveData = document.querySelector("#saveData")
+    const cancleData = document.querySelector("#cancleData")
+
+    let txt = "";
+
+    showUl.addEventListener('click', (e) => {
+
+      if (e.target.classList.contains('delbtn')) {
+        if (e.target.tagName == 'BUTTON') {
+          console.log("Delete Here")
+          e.target.parentElement.remove()
+        }
+      }
+
+
+      if (e.target.classList.contains('editbtn')) {
+        if (e.target.tagName == 'BUTTON') {
+          console.log("Inside todo Edit")
+          let textNode = e.target.parentElement.firstChild
+          console.log("TextNode ", textNode)
+          txt = textNode
+          editFormField.value = txt.textContent
+
+          editFormField.style.display = 'inline'
+          saveData.style.display = 'inline'
+          cancleData.style.display = 'inline'
+        }
+      }
+    })
+
+    saveData.addEventListener('click', (e) => {
+      txt.textContent = editFormField.value
+      editFormField.style.display = 'none'
+      saveData.style.display = 'none'
+      cancleData.style.display = 'none'
+      txt = " "
+    })
+
+
+    cancleData.addEventListener('click', (e) => {
+      txt = " "
+      editFormField.value = " "
+      editFormField.style.display = 'none'
+      saveData.style.display = 'none'
+      cancleData.style.display = 'none'
+
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Click</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .btn {
+      padding: 25px;
+      margin: 15px;
+      border: none;
+      background-color: #212121;
+      color: #ffff;
+      border-radius: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <button class="btn" id="str"> </button>
+    <button class="btn" id="stp">Stop</button>
+    <button class="btn" id="rs">Resume</button>
+  </div>
+
+
+
+  <script>
+
+    let start = null
+
+    function startClock() {
+      const strbtn = document.querySelector("#str")
+
+      start = setInterval(function () {
+        const date = new Date()
+        strbtn.innerHTML = date.toLocaleTimeString()
+      }, 1000)
+    }
+
+    startClock()
+
+
+    const stpbtn = document.querySelector("#stp")
+    stpbtn.addEventListener('click', () => {
+      clearInterval(start)
+      start = null
+    })
+
+
+    const resume = document.querySelector("#rs")
+    resume.addEventListener('click', function () {
+      if (!start) {
+        startClock()
+      }
+    })
+
+
+
+
+  </script>
+</body>
+
+</html>
